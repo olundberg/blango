@@ -5,8 +5,6 @@ from django.utils.translation import gettext_lazy as _
 
 # Register your models here.
 
-
-
 class BlangoUserAdmin(UserAdmin):
     fieldsets = (
         (None, {"fields": ("email", "password")}),
