@@ -53,6 +53,7 @@ class Dev(Configuration):
       'allauth.account',
       'allauth.socialaccount',
       'allauth.socialaccount.providers.google',
+      'rest_framework.authtoken',
   ]
   ROOT_URLCONF = 'blango.urls'
   SITE_ID = 1
@@ -104,6 +105,14 @@ class Dev(Configuration):
   SESSION_COOKIE_SAMESITE = 'None'
   CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
   CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+  REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+  }
 
   INTERNAL_IPS = ["192.168.10.93"]
 
